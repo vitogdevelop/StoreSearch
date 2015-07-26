@@ -15,8 +15,31 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-G4-rQF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="VsZ-X7-PP4">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QhF-G4-rQF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7X7-ME-PUq"/>
+                            <constraint firstItem="QhF-G4-rQF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Fyc-rn-955"/>
+                            <constraint firstItem="VsZ-X7-PP4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="J69-ng-zku"/>
+                            <constraint firstAttribute="trailing" secondItem="QhF-G4-rQF" secondAttribute="trailing" id="SCs-XT-S62"/>
+                            <constraint firstAttribute="trailing" secondItem="VsZ-X7-PP4" secondAttribute="trailing" id="gaP-1c-tnd"/>
+                            <constraint firstItem="VsZ-X7-PP4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="jwU-tt-C3w"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QhF-G4-rQF" secondAttribute="bottom" id="sof-DF-lrN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="VsZ-X7-PP4" id="DrB-vg-kOi"/>
+                        <outlet property="tableView" destination="QhF-G4-rQF" id="YJ3-zv-bRc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
