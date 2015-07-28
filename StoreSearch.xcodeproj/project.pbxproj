@@ -13,6 +13,7 @@
 		5F34FDF01B643E2A00869787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F34FDEF1B643E2A00869787 /* Images.xcassets */; };
 		5F34FDF31B643E2A00869787 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F34FDF11B643E2A00869787 /* LaunchScreen.xib */; };
 		5F34FDFF1B643E2B00869787 /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34FDFE1B643E2B00869787 /* StoreSearchTests.swift */; };
+		5FFCFA051B65529F0045A683 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCFA041B65529F0045A683 /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5F34FDF81B643E2B00869787 /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F34FDFD1B643E2B00869787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F34FDFE1B643E2B00869787 /* StoreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTests.swift; sourceTree = "<group>"; };
+		5FFCFA041B65529F0045A683 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				5F34FDE81B643E2A00869787 /* AppDelegate.swift */,
+				5FFCFA041B65529F0045A683 /* SearchResult.swift */,
 				5F34FDEA1B643E2A00869787 /* SearchViewController.swift */,
-				5F34FDEC1B643E2A00869787 /* Main.storyboard */,
 				5F34FDEF1B643E2A00869787 /* Images.xcassets */,
 				5F34FDF11B643E2A00869787 /* LaunchScreen.xib */,
+				5F34FDEC1B643E2A00869787 /* Main.storyboard */,
 				5F34FDE61B643E2A00869787 /* Supporting Files */,
 			);
 			path = StoreSearch;
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F34FDEB1B643E2A00869787 /* SearchViewController.swift in Sources */,
+				5FFCFA051B65529F0045A683 /* SearchResult.swift in Sources */,
 				5F34FDE91B643E2A00869787 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				5F34FE041B643E2B00869787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F34FE051B643E2B00869787 /* Build configuration list for PBXNativeTarget "StoreSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				5F34FE071B643E2B00869787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
