@@ -9,4 +9,11 @@
 class SearchResult {
   var name = ""
   var artistName = ""
+  var artworkURL60 = ""
+  var atrworkURL100 = ""
+  var storeURl = ""
+  var kind = ""
+  var currency = ""
+  var price = 0.0
+  var genre = ""
 }
