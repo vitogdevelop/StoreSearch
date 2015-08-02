@@ -17,6 +17,7 @@
 		5FFCFA071B6AD2280045A683 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCFA061B6AD2280045A683 /* SearchResultCell.xib */; };
 		5FFCFA091B6C364A0045A683 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCFA081B6C364A0045A683 /* SearchResultCell.swift */; };
 		5FFCFA0B1B6CB1450045A683 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCFA0A1B6CB1450045A683 /* NothingFoundCell.xib */; };
+		5FFCFA0D1B6E82A80045A683 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCFA0C1B6E82A80045A683 /* LoadingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5FFCFA061B6AD2280045A683 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		5FFCFA081B6C364A0045A683 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		5FFCFA0A1B6CB1450045A683 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		5FFCFA0C1B6E82A80045A683 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				5FFCFA081B6C364A0045A683 /* SearchResultCell.swift */,
 				5F34FDEA1B643E2A00869787 /* SearchViewController.swift */,
 				5F34FDEF1B643E2A00869787 /* Images.xcassets */,
+				5FFCFA0C1B6E82A80045A683 /* LoadingCell.xib */,
 				5FFCFA0A1B6CB1450045A683 /* NothingFoundCell.xib */,
 				5FFCFA061B6AD2280045A683 /* SearchResultCell.xib */,
 				5F34FDF11B643E2A00869787 /* LaunchScreen.xib */,
@@ -206,6 +209,7 @@
 			files = (
 				5F34FDEE1B643E2A00869787 /* Main.storyboard in Resources */,
 				5F34FDF31B643E2A00869787 /* LaunchScreen.xib in Resources */,
+				5FFCFA0D1B6E82A80045A683 /* LoadingCell.xib in Resources */,
 				5FFCFA071B6AD2280045A683 /* SearchResultCell.xib in Resources */,
 				5FFCFA0B1B6CB1450045A683 /* NothingFoundCell.xib in Resources */,
 				5F34FDF01B643E2A00869787 /* Images.xcassets in Resources */,
