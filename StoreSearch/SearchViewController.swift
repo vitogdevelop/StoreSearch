@@ -60,28 +60,14 @@ class SearchViewController: UIViewController {
     return url!
   }
   
-  func performStoreRequestWithURL(url: NSURL) -> String? {
+  func parseJSON(data: NSData) -> [String: AnyObject]? {
     var error: NSError?
-    if let resultString = String(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: &error) {
-      return resultString
+    if let json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) as? [String: AnyObject] {
+      return json
     } else if let error = error {
-      println("Download Error: \(error)")
-    } else {
-      println("Unknown Download Error")
-    }
-    return nil
-  }
-  
-  func parseJSON(jsonString: String) -> [String: AnyObject]? {
-    if let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding) {
-      var error: NSError?
-      if let json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) as? [String: AnyObject] {
-        return json
-      } else if let error = error {
         println("JSON Error: \(error)")
-      } else {
+    } else {
         println("Unknon JSON Error")
-      }
     }
     return nil
   }
@@ -169,27 +155,42 @@ extension SearchViewController: UISearchBarDelegate {
       searchResults = [SearchResult]()
       
       // 1
-      let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+      let url = self.urlWithSearchText(searchBar.text)
       
       // 2
-      dispatch_async(queue) {
-        let url = self.urlWithSearchText(searchBar.text)
-        if let jsonString = self.performStoreRequestWithURL(url) {
-          if let dictionary = self.parseJSON(jsonString) {
-            self.searchResults = self.parseDictionary(dictionary)
-            self.searchResults.sort(<)
-            // 3
-            dispatch_async(dispatch_get_main_queue()) {
-              self.isLoading = false
-              self.tableView.reloadData()
-            }
-            return
+      let session = NSURLSession.sharedSession()
+      // 3
+      let dataTask = session.dataTaskWithURL(url, completionHandler: {
+        data, response, error in
+        // 4
+        if let error = error {
+          println("Falilure! \(error)")
+          if error.code == -999 {return}
+        } else if let httpResponse = response as? NSHTTPURLResponse {
+          if httpResponse.statusCode == 200 {
+            if let dictionary = self.parseJSON(data){
+              self.searchResults = self.parseDictionary(dictionary)
+              self.searchResults.sort(<)
+
+              dispatch_async(dispatch_get_main_queue()) {
+                self.isLoading = false
+                self.tableView.reloadData()
+              }
+              return
+          } else {
+            println("Failure! \(response)")
           }
         }
-        dispatch_async(dispatch_get_main_queue()) {
-            self.showNetworkError()
         }
-      }
+        dispatch_async(dispatch_get_main_queue()) {
+          self.hasSearched = false
+          self.isLoading = false
+          self.tableView.reloadData()
+          self.showNetworkError()
+        }
+      })
+      // 5
+      dataTask.resume()
     }
   }
   
