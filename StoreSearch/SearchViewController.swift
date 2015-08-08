@@ -68,6 +68,7 @@ class SearchViewController: UIViewController {
     }
     let escapedSearchText = searchText.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
     let urlString = String(format: "http://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
+    println(urlString)
     let url = NSURL(string: urlString)
     return url!
   }
@@ -135,21 +136,6 @@ class SearchViewController: UIViewController {
     }
     return searchResult
    }
-  
-  func kindForDisplay(kind: String) -> String{
-    switch kind {
-    case "album": return "Album"
-    case "audiobook": return "Audio Book"
-    case "ebook": return "E-Book"
-    case "feature-movie": return "Movie"
-    case "Music-video": return "Movie"
-    case "podcast": return "Podcast"
-    case "software": return "App"
-    case "song": return "Song"
-    case "tv-episode": return "TV Episide"
-    default: return kind
-    }
-  }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -254,12 +240,7 @@ extension SearchViewController: UITableViewDataSource {
       let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.searchResultCell, forIndexPath: indexPath) as! SearchResultCell
       
       let searchResult = searchResults[indexPath.row]
-      cell.nameLabel.text = searchResult.name
-      if searchResult.artistName.isEmpty {
-        cell.artistNameLabel.text = "Unknown"
-      } else {
-        cell.artistNameLabel.text =  String(format: "%@ (%@)", searchResult.artistName, kindForDisplay(searchResult.kind))
-      }
+      cell.configureForSearchResult(searchResult)
       return cell
     }
   }
