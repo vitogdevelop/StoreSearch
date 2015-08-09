@@ -124,8 +124,8 @@ class SearchViewController: UIViewController {
     searchResult.name = dictionary["trackName"] as! String
     searchResult.artistName = dictionary["artistName"] as! String
     searchResult.artworkURL60 = dictionary["artworkUrl60"] as! String
-    searchResult.atrworkURL100 = dictionary["artworkUrl100"] as! String
-    searchResult.storeURl = dictionary["trackViewUrl"] as! String
+    searchResult.artworkURL100 = dictionary["artworkUrl100"] as! String
+    searchResult.storeURL = dictionary["trackViewUrl"] as! String
     searchResult.kind = dictionary["kind"] as! String
     searchResult.currency = dictionary["currency"] as! String
     if let price = dictionary["trackPrice"] as? Double {
@@ -136,6 +136,15 @@ class SearchViewController: UIViewController {
     }
     return searchResult
    }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowDetail" {
+      let detailViewController = segue.destinationViewController as! DetailViewController
+      let indexPaht = sender as! NSIndexPath
+      let searchResult = searchResults[indexPaht.row]
+      detailViewController.searchResult = searchResult
+    }
+  }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -250,6 +259,7 @@ extension SearchViewController: UITableViewDelegate {
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    performSegueWithIdentifier("ShowDetail", sender: indexPath)
   }
   
   func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
