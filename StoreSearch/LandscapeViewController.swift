@@ -21,7 +21,9 @@ class LandscapeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    deinit {
+      //println("deinit \(self)")
+    }
     /*
     // MARK: - Navigation
 
